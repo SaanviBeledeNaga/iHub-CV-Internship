@@ -39,10 +39,10 @@
 #### Performance Metrics
 | Metric | Value |
 |--------|-------|
-Precision       : 0.659
-Recall          : 0.552
-mAP@50           : 0.604
-mAP@50:95        : 0.395
+| Precision | 0.659 |
+| Recall | 0.552 |
+| mAP@50 | 0.604 |
+| mAP@50:95 | 0.395 |
 
 - Metrics (https://drive.google.com/drive/folders/1rRuePcBYR6MrXHFfGCIGKQNKiXmuV0Z4?usp=drive_link)
 
