@@ -61,3 +61,32 @@
 - YOLOv8 (Ultralytics) — Object detection & segmentation
 - Python, OpenCV
 - Google Colab
+
+## Week 4 — YOLO Dataset Configuration & Labeling
+
+### Task 1 — YOLO Configuration Files Report
+
+Explored the directory/file structures and meta configuration files used in YOLOv8 models.
+ [Full Report](https://drive.google.com/drive/folders/1hfDHfFsUdIelrUo-Sn_mskbdrLJRXD6G?usp=drive_link)
+ ### Task 2 — Label Studio Setup & Dataset Creation
+
+**Object to detect:**  Planes / Aircraft
+
+**Tools used:**
+- Label Studio — for annotating bounding boxes
+- yt-dlp — to download aircraft footage
+- ffmpeg — to extract frames from video
+
+**Steps completed:**
+- Created separate virtual environment for Label Studio
+- Installed Label Studio via pip
+- Downloaded aircraft video footage
+- Extracted frames at 2fps for labeling
+- Created project in Label Studio with `plane` class
+- Drew bounding box annotations on each frame
+
+**Labeling Setup:**
+- Tool: Label Studio
+- Task: Object Detection with Bounding Boxes
+- Class: `plane`
+- Format: YOLO (exported as class_id + normalized coordinates)
