@@ -68,25 +68,55 @@
 
 Explored the directory/file structures and meta configuration files used in YOLOv8 models.
  [Full Report](https://drive.google.com/drive/folders/1hfDHfFsUdIelrUo-Sn_mskbdrLJRXD6G?usp=drive_link)
- ### Task 2 — Label Studio Setup & Dataset Creation
 
-**Object to detect:**  Planes / Aircraft
+### Task 2 — Label Studio Setup & Custom Dataset Creation
 
-**Tools used:**
-- Label Studio — for annotating bounding boxes
-- yt-dlp — to download aircraft footage
-- ffmpeg — to extract frames from video
+**Object detected:**  Planes / Aircraft
+**Video source:** [London Heathrow Airport Plane Spotting](https://www.youtube.com/watch?v=GjWstrGp9XI)
 
-**Steps completed:**
-- Created separate virtual environment for Label Studio
+#### Steps Completed:
+- Created separate virtual environment for Label Studio (`C:\labelstudio\venv`) using Python 3.11
 - Installed Label Studio via pip
-- Downloaded aircraft video footage
-- Extracted frames at 2fps for labeling
-- Created project in Label Studio with `plane` class
-- Drew bounding box annotations on each frame
+- Downloaded London Heathrow airport footage using yt-dlp
+- Extracted 600 frames at 10fps using ffmpeg
+- Organized into train (100), val (40), test (remaining) folders
+- Synced images to Label Studio via Local File Storage
+- Created `Plane Detection` project with `airplane` class
+- Manually annotated bounding boxes on 140 images (100 train + 40 val)
+- Exported labels in YOLO format
+- Created `data.yaml`, `train.txt`, `val.txt` metadata files
+- Trained YOLOv8n on custom labeled dataset
 
-**Labeling Setup:**
-- Tool: Label Studio
-- Task: Object Detection with Bounding Boxes
-- Class: `plane`
-- Format: YOLO (exported as class_id + normalized coordinates)
+#### Dataset Details:
+| Property | Value |
+|----------|-------|
+| Total Images Labeled | 140 |
+| Train Images | 100 |
+| Val Images | 40 |
+| Total Instances | 201+ |
+| Classes | airplane |
+| Label Format | YOLO (normalized bbox) |
+
+#### Training Run  — All images for training (120 images)
+| Metric | Value |
+|--------|-------|
+| Precision | 0.957 |
+| Recall | 0.553 |
+| mAP@50 | 0.795 |
+| mAP@50:95 | 0.546 |
+| Epochs | 10 |
+| Training Time | 0.321 hours |
+
+#### Metadata Files:
+- `data.yaml` — dataset configuration
+- `train.txt` — paths to all training images
+- `val.txt` — paths to all validation images
+- `labels/train/` — 100 YOLO format annotation files
+- `labels/val/` — 40 YOLO format annotation files
+
+#### Tools Used:
+- Label Studio — image annotation
+- yt-dlp — video download
+- ffmpeg — frame extraction
+- YOLOv8n (Ultralytics) — object detection training
+- Python 3.11 — scripting
