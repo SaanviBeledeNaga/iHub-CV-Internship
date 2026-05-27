@@ -121,7 +121,7 @@ Explored the directory/file structures and meta configuration files used in YOLO
 - YOLOv8n (Ultralytics) — object detection training
 - Python 3.11 — scripting
 
-  ## Week 5 — Custom Model Training & Inference
+## Week 5 — Custom Model Training & Inference
 ### Tasks 1–5 — End-to-End Vehicle Detection Pipeline
 
 **Objects detected:** Cars & Trucks  
@@ -172,4 +172,3 @@ Explored the directory/file structures and meta configuration files used in YOLO
 - YOLOv8n (Ultralytics) — custom model training & inference
 - Python, OpenCV — video processing
 - Google Colab (T4 GPU) — model training
-- 
