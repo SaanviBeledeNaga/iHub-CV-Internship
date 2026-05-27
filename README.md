@@ -120,3 +120,56 @@ Explored the directory/file structures and meta configuration files used in YOLO
 - ffmpeg — frame extraction
 - YOLOv8n (Ultralytics) — object detection training
 - Python 3.11 — scripting
+
+  ## Week 5 — Custom Model Training & Inference
+### Tasks 1–5 — End-to-End Vehicle Detection Pipeline
+
+**Objects detected:** Cars & Trucks  
+**Video source:** Royalty-free traffic footage (Pexels)
+
+#### Steps Completed:
+- Collected traffic footage and extracted 107 frames at 5fps using ffmpeg
+- Organized into train (75), val (21), test (11) folders following 70-20-10 split
+- Set up Label Studio and annotated bounding boxes on 96 images (75 train + 21 val)
+- Exported labels in YOLO format and created `data.yaml`
+- Resized all images from 4K (3840×2160) to 384px width using ffmpeg, preserving aspect ratio
+- Fine-tuned YOLOv8n pretrained model on custom dataset for 100 epochs on Google Colab (T4 GPU)
+- Ran inference on 11 unseen test images using trained weights
+- Stitched detected frames into video and added royalty-free background music
+
+#### Dataset Details:
+| Property | Value |
+|----------|-------|
+| Total Images | 107 |
+| Train Images | 75 |
+| Val Images | 21 |
+| Test Images | 11 |
+| Classes | car, truck |
+| Label Format | YOLO (normalized bbox) |
+
+#### Training Results:
+| Metric | Value |
+|--------|-------|
+| Precision | 0.905 |
+| Recall | 0.647 |
+| mAP@50 | 0.662 |
+| mAP@50:95 | 0.460 |
+| Epochs | 100 |
+| Training Time | ~0.031 hours |
+
+#### Per-Class Performance:
+| Class | mAP@50 |
+|-------|--------|
+| car | 0.989 |
+| truck | 0.336 |
+
+#### Output:
+ [Week 5 Results](https://drive.google.com/drive/folders/1pvqnRdJ_MNLk-HIKN1Su20DgV3n_WqXE?usp=drive_link)
+
+#### Tools Used:
+- Label Studio — image annotation
+- ffmpeg — frame extraction & video stitching
+- YOLOv8n (Ultralytics) — custom model training & inference
+- Python, OpenCV — video processing
+- Google Colab (T4 GPU) — model training
+- 
